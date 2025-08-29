@@ -2,6 +2,9 @@ package com.exemplo.tarefas.controller;
 
 import com.exemplo.tarefas.model.Usuario;
 import com.exemplo.tarefas.repository.UsuarioRepository;
+
+import jakarta.validation.Valid;
+
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -24,7 +27,7 @@ public class UsuarioController {
 
     // POST - cria novo usuário
     @PostMapping
-    public Usuario criarUsuario(@RequestBody Usuario usuario) {
+    public Usuario criarUsuario(@Valid @RequestBody Usuario usuario) {
         return usuarioRepository.save(usuario);
     }
 

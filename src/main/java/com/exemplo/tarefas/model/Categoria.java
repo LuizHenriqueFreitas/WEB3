@@ -1,6 +1,7 @@
 package com.exemplo.tarefas.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
 
 @Entity
 public class Categoria {
@@ -8,6 +9,8 @@ public class Categoria {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long codigo;
 
+    @NotBlank(message = "O nome da categoria não pode ser vazio")
+    @Size(max = 50, message = "O nome não pode ter mais que 50 caracteres")
     private String nome;
 
     // Getters e setters

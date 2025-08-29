@@ -2,6 +2,9 @@ package com.exemplo.tarefas.controller;
 
 import com.exemplo.tarefas.model.Categoria;
 import com.exemplo.tarefas.repository.CategoriaRepository;
+
+import jakarta.validation.Valid;
+
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -24,7 +27,7 @@ public class CategoriaController {
 
     // POST - cria nova categoria
     @PostMapping
-    public Categoria criarCategoria(@RequestBody Categoria categoria) {
+    public Categoria criarCategoria(@Valid @RequestBody Categoria categoria) {
         return categoriaRepository.save(categoria);
     }
 
